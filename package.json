@@ -1,0 +1,41 @@
+{
+  "name": "@mapistry/typeworx",
+  "version": "1.0.0",
+  "description": "A framework for creating and executing compile-time decorators that allow code generation or even code manipulation.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "bin": {
+    "typeworx": "./dist/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taicho/typeworx.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "helper",
+    "helpers",
+    "utilities",
+    "decorators"
+  ],
+  "author": "Azad Ratzki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taicho/typeworx/issues"
+  },
+  "homepage": "https://github.com/taicho/typeworx#readme",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "ts-simple-ast": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/debug": "0.0.30",
+    "@types/node": "^9.3.0"
+  }
+}
