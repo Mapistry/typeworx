@@ -1,7 +1,6 @@
 import * as debug from 'debug';
 import * as fs from 'fs';
 import * as path from 'path';
-import 'reflect-metadata';
 import * as ts from 'ts-simple-ast';
 import Project from 'ts-simple-ast';
 const log = debug('typeworx');
