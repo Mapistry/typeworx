@@ -1,6 +1,6 @@
 {
   "name": "@mapistry/typeworx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A framework for creating and executing compile-time decorators that allow code generation or even code manipulation.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taicho/typeworx.git"
+    "url": "git+https://github.com/Mapistry/typeworx.git"
   },
   "keywords": [
     "TypeScript",
@@ -27,9 +27,9 @@
   "author": "Azad Ratzki",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/taicho/typeworx/issues"
+    "url": "https://github.com/Mapistry/typeworx/issues"
   },
-  "homepage": "https://github.com/taicho/typeworx#readme",
+  "homepage": "https://github.com/Mapistry/typeworx#readme",
   "dependencies": {
     "debug": "^3.1.0",
     "ts-simple-ast": "^11.1.0"
