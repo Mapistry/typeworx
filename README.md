@@ -79,7 +79,7 @@ execute('/myApp/index.ts', { myCustomStateValue: 'GitHub User!'}).then((state)=>
 
 ## State
 
-The state object is passed to all decorator functions at execution-time. It is **NOT** immutable and is intended be modified by your decorator logic. There is only one relevant, system-provided special property on the state object called `outputs` which is initialized to an empty object at execution start. The `outputs` property can be useful for circumstances where you want you decorator library to output textual data to stdout automatically - maybe you intended your library to be used with the typeworx CLI. Any keys present on the `outputs` property will enumerated at the end of processing and sent to stdout.
+The state object is passed to all decorator functions at execution-time. It is **NOT** immutable and is intended be modified by your decorator logic. There is only one relevant, system-provided special property on the state object called `outputs` which is initialized to an empty object at execution start. The `outputs` property can be useful for circumstances where you want your decorator library to output textual data to stdout automatically - maybe you intended your library to be used with the typeworx CLI. Any keys present on the `outputs` property will enumerated at the end of processing and sent to stdout.
 
 ## TypeWorxDecorator Options
 
