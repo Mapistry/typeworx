@@ -29,7 +29,7 @@ A typing for this function definition called "DecoratorReturnFunction" can be im
 ## Example Custom Decorator and Usage
 `/myCustomDecoratorLibrary/index.ts`
 ```ts
-import {TypeWorxDecorator,DecoratorType, Utilities} from 'typeworx';
+import {TypeWorxDecorator,DecoratorType, Utilities} from '@mapistry/typeworx';
 
 export class MyDecorators {
 
@@ -74,7 +74,7 @@ Hello there GitHub User!
 
 `API`
 ```ts
-import {execute} from 'typeworx';
+import {execute} from '@mapistry/typeworx';
 
 execute('/myApp/index.ts', { myCustomStateValue: 'GitHub User!'}).then((state)=>{
     // console would show 'Hello there GitHub User!'
