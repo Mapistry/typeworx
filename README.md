@@ -2,6 +2,10 @@
 
 A framework for creating and executing compile-time decorators that allow code generation or even code manipulation.
 
+## Installation
+`npm i typeworx` or `npm i -g typeworx`
+
+
 ## API
 
 ### Decorators
