@@ -1,6 +1,6 @@
 {
   "name": "@mapistry/typeworx",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A framework for creating and executing compile-time decorators that allow code generation or even code manipulation.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,7 +32,7 @@
   "homepage": "https://github.com/Mapistry/typeworx#readme",
   "dependencies": {
     "debug": "^3.1.0",
-    "ts-simple-ast": "^11.1.0"
+    "ts-simple-ast": "^11.3.0"
   },
   "devDependencies": {
     "@types/debug": "0.0.30",

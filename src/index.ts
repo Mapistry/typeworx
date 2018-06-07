@@ -8,6 +8,7 @@ import { DecoratorType } from './decoratorType';
 import { State } from './interfaces/baseState';
 import { ResolvedFunctions } from './interfaces/resolvedFunctions';
 import { TypeWorxOptions } from './interfaces/typeWorxOptions';
+import { BuilderOptions, TypeScriptJsonSchemaBuilder } from './typescriptJsonSchemaBuilder';
 import * as utils from './utilities';
 export * from './decorators';
 
@@ -16,6 +17,8 @@ export {
     TypeWorxOptions,
     DecoratorType,
     State,
+    TypeScriptJsonSchemaBuilder,
+    BuilderOptions,
 };
 
 export async function execute<T extends State = any>(sourceFileGlob: string, state?: T) {
