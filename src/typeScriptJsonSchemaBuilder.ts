@@ -39,9 +39,14 @@ export class TypeScriptJsonSchemaBuilder {
         if (type == null) {
             return null;
         }
-        const typeArgs = type.getTypeArguments();
+        let typeArgs: ts.Type<ts.ts.Type>[];
+        if (type.getTypeArguments() && type.getTypeArguments().length) {
+            typeArgs = type.getTypeArguments();
+        } else {
+            typeArgs = type.getAliasTypeArguments();
+        }
         const hasTypeArgs = typeArgs && typeArgs.length;
-        const symbol = type.getSymbol();
+        const symbol = type.getAliasSymbol() || type.getSymbol();
         const name = symbol ? symbol.getName() : type.getText();
         return `${name}${hasTypeArgs ? '_' + typeArgs.map((x) => this.getUniqueTypeNameFromGenerics(x)).join('_') : ''}`;
     }
@@ -49,6 +54,10 @@ export class TypeScriptJsonSchemaBuilder {
     public quickCreateTS(str: string) {
         const p = new Project();
         return p.createSourceFile('temp.ts', str);
+    }
+
+    public getNameFromType(type: ts.Type) {
+        return type.isAnonymousType() ? `AnonymousType${this.anonymousTypeCount++}` : this.getUniqueTypeNameFromGenerics(type);
     }
 
     public addTypeInternal(type: ts.Type): { name: string, schema: any } {
@@ -60,7 +69,7 @@ export class TypeScriptJsonSchemaBuilder {
         const properties = type.getProperties();
         const requiredProperties = [];
         const typeIsAnonymous = type.isAnonymousType();
-        let name = typeIsAnonymous ? `AnonymousType${this.anonymousTypeCount++}` : this.getUniqueTypeNameFromGenerics(type);
+        let name = this.getNameFromType(type);
         log(`Resolving Type: ${name}`);
         const tempTypeArguments = type.getTypeArguments();
         const typeArgumentsMap = new Map<string, ts.Type>();
@@ -77,8 +86,14 @@ export class TypeScriptJsonSchemaBuilder {
             if (!(property.getFlags() & ts.SymbolFlags.Optional)) {
                 requiredProperties.push(property.getName());
             }
-            const valueDeclaration = property.getValueDeclaration();
-            const valueDeclarationType = valueDeclaration.getType();
+            let valueDeclaration = property.getValueDeclaration();
+            let valueDeclarationType: ts.Type<ts.ts.Type>;
+            if (valueDeclaration) {
+                valueDeclarationType = valueDeclaration.getType();
+            } else {
+                valueDeclaration = property.getDeclarations()[0];
+                valueDeclarationType = valueDeclaration.getType();
+            }
             let proposedType: ts.Type;
             let obj: any = {};
             // debugger;
