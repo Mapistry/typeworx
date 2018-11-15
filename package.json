@@ -1,6 +1,6 @@
 {
   "name": "@mapistry/typeworx",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A framework for creating and executing compile-time decorators that allow code generation or even code manipulation.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
